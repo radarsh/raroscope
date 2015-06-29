@@ -1,4 +1,4 @@
-## Introduction=
+## Introduction
 
 Ever faced the challenge to be able to scan RAR archives using Java? Wished the API was as simple and easy to use as the ones provided for ZIP and JAR handling in Java? Don't want  the hassles of including expensive native code into your Java application?
 
@@ -20,7 +20,7 @@ RARoScope is here to solve all these woes. The following lines are all you've to
 Impressed? I sure was thrilled when I first wrote the library! Go ahead, download RARoScope and start using it in your applications right now.
 
 
-## What RARoScope can do?=
+## What RARoScope can do
 
 Exposing a simple API, RARoScope packs the following rich features.
 
