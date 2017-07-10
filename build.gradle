@@ -1,2 +1,93 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.jfrog.bintray' version '1.7.3'
+}
+
+task sourcesJar(type: Jar) {
+    description = 'Creates sources jar'
+    classifier = 'sources'
+    from project.sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar) {
+    description = 'Creates API documentation jar'
+    classifier = 'javadoc'
+    from javadoc
+}
+
+artifacts {
+    archives jar
+    archives sourcesJar
+    archives javadocJar
+}
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            groupId project.group
+            artifactId project.name
+            version project.version
+
+            pom.withXml {
+                def root = asNode()
+
+                root.appendNode('description', project.description)
+                root.appendNode('name', project.name)
+                root.appendNode('url', 'http://www.adarshr.com/raroscope-java-library-for-scanning-rar-files')
+
+                def licenseNode = root.appendNode('licenses').appendNode('license')
+                licenseNode.appendNode('name', 'The Apache Software License, Version 2.0')
+                licenseNode.appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.txt')
+                licenseNode.appendNode('distribution', 'repo')
+
+                def developersNode = root.appendNode('developers')
+                def developerNode = developersNode.appendNode('developer')
+                developerNode.appendNode('id', 'radarsh')
+                developerNode.appendNode('name', 'Adarsh Ramamurthy')
+                developerNode.appendNode('email', 'adarsh.ramamurthy@gmail.com')
+
+                def scmNode = root.appendNode('scm')
+                scmNode.appendNode('connection', 'scm:git:git@github.com:radarsh/raroscope.git')
+                scmNode.appendNode('developerConnection', 'scm:git:git@github.com:radarsh/raroscope.git')
+                scmNode.appendNode('url', 'https://github.com/radarsh/raroscope')
+            }
+        }
+    }
+}
+
+bintray {
+    user = project.findProperty('bintrayUsername')
+    key = project.findProperty('bintrayPassword')
+    publications('mavenPublication')
+
+    pkg {
+        repo = 'maven'
+        name = 'raroscope'
+        desc = project.description
+        licenses = ['Apache-2.0']
+        websiteUrl = 'http://www.adarshr.com/raroscope-java-library-for-scanning-rar-files'
+        issueTrackerUrl = 'https://github.com/radarsh/raroscope/issues'
+        vcsUrl = 'https://github.com/radarsh/raroscope'
+        githubRepo = 'radarsh/raroscope'
+        publicDownloadNumbers = true
+
+        version {
+            name = project.version
+            released  = new Date()
+
+            gpg {
+                sign = true
+            }
+
+            mavenCentralSync {
+                sync = true
+                user = project.findProperty('mavenCentralUsername')
+                password = project.findProperty('mavenCentralPassword')
+            }
+        }
+    }
+}

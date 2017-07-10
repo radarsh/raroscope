@@ -31,8 +31,9 @@ import java.util.NoSuchElementException;
 
 /**
  * Represents a RAR archive.
- * <p/>
+ * <p>
  * This class is used to enumerate the entries in a RAR file.
+ * </p>
  *
  * @author Adarsh Ramamurthy
  * @version 1.0, 10th March 2008
