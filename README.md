@@ -1,5 +1,7 @@
 ## Introduction
 
+[ ![Download](https://api.bintray.com/packages/adarshr/maven/raroscope/images/download.svg) ](https://bintray.com/adarshr/maven/raroscope/_latestVersion)
+
 Ever faced the challenge to be able to scan RAR archives using Java? Wished the API was as simple and easy to use as the ones provided for ZIP and JAR handling in Java? Don't want  the hassles of including expensive native code into your Java application?
 
 RARoScope is here to solve all these woes. The following lines are all you've to write to list out all the entries of a RAR file, say, `D:/Data.rar`.
@@ -19,6 +21,24 @@ RARoScope is here to solve all these woes. The following lines are all you've to
 
 Impressed? I sure was thrilled when I first wrote the library! Go ahead, download RARoScope and start using it in your applications right now.
 
+## Usage
+
+### Gradle
+
+```groovy
+compile 'com.adarshr:raroscope:1.0.0'
+```
+
+### Maven
+
+```xml
+<dependency>
+    <groupId>com.adarshr</groupId>
+    <artifactId>raroscope</artifactId>
+    <version>1.0.0</version>
+    <type>pom</type>
+</dependency>
+```
 
 ## What RARoScope can do
 
