@@ -36,7 +36,6 @@ compile 'com.adarshr:raroscope:1.0.0'
     <groupId>com.adarshr</groupId>
     <artifactId>raroscope</artifactId>
     <version>1.0.0</version>
-    <type>pom</type>
 </dependency>
 ```
 
