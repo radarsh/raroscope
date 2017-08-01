@@ -73,7 +73,18 @@ public class RARFile {
      * @throws IOException in case of errors reading from the archive.
      */
     public RARFile(File file) throws IOException {
-        this.stream = new FileInputStream(file);
+        this(new FileInputStream(file));
+    }
+
+    /**
+     * Constructs an instance of <tt>RARFile</tt> for performing operations
+     * on the archive.
+     *
+     * @param stream the RAR file input stream.
+     * @throws IOException in case of errors reading from the archive.
+     */
+    public RARFile(InputStream stream) throws IOException {
+        this.stream = stream;
 
         this.available = this.stream.available();
 
