@@ -1,6 +1,8 @@
 ## Introduction
 
 [ ![Download](https://api.bintray.com/packages/adarshr/maven/raroscope/images/download.svg) ](https://bintray.com/adarshr/maven/raroscope/_latestVersion)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.adarshr/raroscope/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.adarshr/raroscope)
+[![CircleCI](https://circleci.com/gh/radarsh/raroscope.svg?style=svg)](https://circleci.com/gh/radarsh/gradle-test-logger-plugin)
 
 Ever faced the challenge to be able to scan RAR archives using Java? Wished the API was as simple and easy to use as the ones provided for ZIP and JAR handling in Java? Don't want  the hassles of including expensive native code into your Java application?
 
