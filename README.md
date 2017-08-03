@@ -6,18 +6,20 @@ Ever faced the challenge to be able to scan RAR archives using Java? Wished the 
 
 RARoScope is here to solve all these woes. The following lines are all you've to write to list out all the entries of a RAR file, say, `D:/Data.rar`.
 
-    // Construct the RARFile object using the file path
-    RARFile file = new RARFile("D:/Data.rar");
+```java
+// Construct the RARFile object using the file path
+RARFile file = new RARFile("D:/Data.rar");
+
+// Get the handle to the Enumeration
+Enumeration<RAREntry> entries = file.entries();
+
+// Iterate and print
+while (entries.hasMoreElements()) {
+    RAREntry entry = entries.nextElement();
     
-    // Get the handle to the Enumeration
-    Enumeration<RAREntry> entries = file.entries();
-    
-    // Iterate and print
-    while (entries.hasMoreElements()) {
-        RAREntry entry = entries.nextElement();
-        
-        System.out.println(entry.getName());
-    }
+    System.out.println(entry.getName());
+}
+```
 
 Impressed? I sure was thrilled when I first wrote the library! Go ahead, download RARoScope and start using it in your applications right now.
 
@@ -25,7 +27,7 @@ Impressed? I sure was thrilled when I first wrote the library! Go ahead, downloa
 
 ### Gradle
 
-```groovy
+```
 compile 'com.adarshr:raroscope:1.0.0'
 ```
 
