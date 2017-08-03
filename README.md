@@ -28,7 +28,7 @@ Impressed? I sure was thrilled when I first wrote the library! Go ahead, downloa
 ### Gradle
 
 ```
-compile 'com.adarshr:raroscope:1.0.0'
+compile 'com.adarshr:raroscope:1.0.1'
 ```
 
 ### Maven
@@ -37,7 +37,7 @@ compile 'com.adarshr:raroscope:1.0.0'
 <dependency>
     <groupId>com.adarshr</groupId>
     <artifactId>raroscope</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
