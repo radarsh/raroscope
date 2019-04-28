@@ -259,39 +259,13 @@ public class RARFile {
      * @return the OS string.
      */
     protected String toOS(int o) {
-        String os = null;
+        String[] os = {"MS DOS", "OS/2", "Win32", "Unix", "Mac OS", "BeOS"};
 
-        switch (o) {
-            case 0:
-                os = "MS DOS";
-                break;
-
-            case 1:
-                os = "OS/2";
-                break;
-
-            case 2:
-                os = "Win32";
-                break;
-
-            case 3:
-                os = "Unix";
-                break;
-
-            case 4:
-                os = "Mac OS";
-                break;
-
-            case 5:
-                os = "BeOS";
-                break;
-
-            default:
-                os = "Unknown";
-                break;
+        try{
+            return os[o];
+        }catch(IndexOutOfBoundsException e){
+            return "Unknown"
         }
-
-        return os;
     }
 
     /**
